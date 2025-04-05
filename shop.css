@@ -1,0 +1,92 @@
+.shop-container {
+  display: flex;
+  gap: 2rem;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Sidebar Filters ---------- */
+.filters {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+/* ---------- Product Display Grid ---------- */
+.product-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  flex: 1; /* Take remaining space */
+  justify-content: center;
+}
+
+/* ---------- Individual Product Card ---------- */
+.bat-card {
+  width: 220px;
+  height: 320px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: sans-serif;
+  transition: transform 0.2s ease;
+  background-color: #fff;
+  margin: 10px;
+}
+
+.bat-card:hover {
+  transform: scale(1.05);
+}
+
+.bat-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.bat-info {
+  padding: 10px;
+}
+
+.bat-info p {
+  margin: 5px 0px;
+  font-size: 14px;
+}
+
+
+/* ---------- Media Queries ---------- */
+
+@media screen and (max-width: 1024px) {
+  .shop-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filters {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  .product-display {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bat-card {
+    width: 45%; /* Two cards per row */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bat-card {
+    width: 100%; /* Single column layout */
+  }
+
+  .bat-info p {
+    font-size: 13px;
+  }
+}
