@@ -44,11 +44,11 @@ function displayFilteredBats() {
 
     // Price Range Filter
     const p = bat.price;
-    if (priceRange === "<500" && p >= 1500) return false;
-    if (priceRange === "500-1000" && (p < 1500 || p > 2000)) return false;
-    if (priceRange === "1000-1500" && (p < 2000 || p > 2500)) return false;
-    if (priceRange === "1500-2000" && (p < 2500 || p > 3000)) return false;
-    if (priceRange === ">2000" && p <= 3000) return false;
+    if (priceRange === "<1500" && p >= 1500) return false;
+    if (priceRange === "1500-2000" && (p < 1500 || p > 2000)) return false;
+    if (priceRange === "2000-2500" && (p < 2000 || p > 2500)) return false;
+    if (priceRange === "2500-3000" && (p < 2500 || p > 3000)) return false;
+    if (priceRange === ">3000" && p <= 3000) return false;
 
     // Rating Filter
     const r = bat.rating;
