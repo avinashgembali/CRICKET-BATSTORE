@@ -1,0 +1,44 @@
+/* ---------- Cart Card Style (like bat-card) ---------- */
+.cart-card {
+    width: 220px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: sans-serif;
+    transition: transform 0.2s ease;
+    background-color: #fff;
+    margin: 10px;
+  }
+  
+  .cart-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .cart-info {
+    padding: 10px;
+  }
+  
+  .cart-info p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .remove-from-cart {
+    background-color: #d9534f;  /* light red */
+    color: white;
+    padding: 6px 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .remove-from-cart:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+  }
+  

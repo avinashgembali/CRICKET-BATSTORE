@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CricketBazaar🏏 - Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to CricketBazaar 🏏</h1>
+    <input type="email" id="loginEmail" placeholder="Enter your email" required />
+    <input type="password" id="loginPassword" placeholder="Enter your password" required />
+    <button class="login-btn" onclick="login()">Login</button>
+    <p>New User? <a href="register.html">Register Here</a></p>
+  </div>
+<script>
+    function login() {
+      const enteredEmail = document.getElementById("loginEmail").value;
+      const enteredPassword = document.getElementById("loginPassword").value;
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+
+      const matchedUser = users.find(
+        (user) => user.email === enteredEmail && user.password === enteredPassword
+      );
+
+      if (matchedUser) {
+        localStorage.setItem("loggedInUser", matchedUser.username); 
+        localStorage.setItem("loggedInUserEmail", matchedUser.email);
+        alert("Login successful!");
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid email or password!");
+      }
+    }
+
+  </script>
+  
+</body>
+</html>

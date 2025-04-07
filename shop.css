@@ -55,6 +55,22 @@
   font-size: 14px;
 }
 
+.add-to-cart {
+  background-color: #1f1f1f; /* dark charcoal */
+  color: #f0f0f0;            /* soft white */
+  padding: 6px 12px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
 
 /* ---------- Media Queries ---------- */
 

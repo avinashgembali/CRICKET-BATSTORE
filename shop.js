@@ -86,6 +86,14 @@ function displayFilteredBats() {
           <p><strong>Type:</strong> ${bat.type}</p>
           <p><strong>Rating:</strong> ${bat.rating}⭐</p>
           <p><strong>Price:</strong> ₹${bat.price.toLocaleString()}</p>
+          <button 
+            class="add-to-cart"
+            data-name="${bat.name}"
+            data-img="${bat.img}"
+            data-type="${bat.type}"
+            data-rating="${bat.rating}"
+            data-price="${bat.price}"
+          >🛒</button>
         </div>
       </div>
     `;
@@ -98,3 +106,34 @@ allInputs.forEach(input => {
 });
 
 displayFilteredBats();
+
+function addToCart(bat) {
+  let userEmail = localStorage.getItem("loggedInUserEmail");
+  if (!userEmail) {
+    alert("Please login to add items to cart.");
+    return;
+  }
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || {};
+  if (!cart[userEmail]) {
+    cart[userEmail] = [];
+  }
+
+  cart[userEmail].push(bat);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("add-to-cart")) {
+    const btn = e.target;
+    const bat = {
+      name: btn.dataset.name,
+      img: btn.dataset.img,
+      type: btn.dataset.type,
+      rating: parseFloat(btn.dataset.rating),
+      price: parseInt(btn.dataset.price)
+    };
+    addToCart(bat);
+    alert("Added to cart!");
+  }
+});

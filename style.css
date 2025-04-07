@@ -28,16 +28,24 @@
 
 .register-buttons {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
 }
 
-.register-buttons button {
+.cart-btn,
+.logout-btn,.login {
+  background-color: #007bff;
   border: none;
-  border-radius: 10px;
-  padding: 12px 20px;
-  cursor: pointer;
   color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cart-btn:hover,
+.logout-btn:hover {
+  background-color: #0056b3;
 }
 
 .login {
@@ -48,13 +56,7 @@
   background-color: hsl(240, 100%, 30%);
 }
 
-.register {
-  background-color: hsl(0, 100%, 50%);
-}
 
-.register:hover {
-  background-color: hsl(0, 100%, 30%);
-}
 
 /* ------------------ Hero Section ------------------ */
 .hero-section {

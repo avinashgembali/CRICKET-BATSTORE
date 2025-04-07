@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BatBazaar🏏 | Register</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Create an Account 🏏</h1>
+    <input type="text" id="regUsername" placeholder="Enter your username" required />
+    <input type="email" id="regEmail" placeholder="Enter your email" required />
+    <input type="password" id="regPassword" placeholder="Create a password" required />
+    <input type="password" id="regConfirmPassword" placeholder="Confirm password" required />
+    <button class="register-btn" onclick="register()">Register</button>
+  </div>
+
+  <script>
+    function validateEmail(email) {
+      return email.includes("@") && email.includes(".");
+    }
+
+    function validatePassword(password) {
+      const re = /^(?=.*[a-zA-Z])(?=.*\d).{6,}$/;
+      return re.test(password);
+    }
+
+
+    function register() {
+      const username = document.getElementById("regUsername").value;
+      const email = document.getElementById("regEmail").value;
+      const password = document.getElementById("regPassword").value;
+      const confirmPassword = document.getElementById("regConfirmPassword").value;
+
+      if (!username || !email || !password || !confirmPassword) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      if (username.length < 3) {
+        alert("Username should be at least 3 characters long.");
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      if (!validatePassword(password)) {
+        alert("Password must be at least 6 characters, including one letter and one number.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Check if email already exists
+      const userExists = users.some(user => user.email === email);
+      if (userExists) {
+        alert("Email is already registered.");
+        return;
+      }
+
+      // Add new user
+      const newUser = { username, email, password };
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users)); // Save the array to "users"
+
+      alert("Registration Successful! Please login.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
