@@ -43,7 +43,7 @@ function displayFilteredBats() {
     }
 
     // Price Range Filter
-    const p = bat.price;
+    const p = Number(bat.price);
     if (priceRange === "<1500" && p >= 1500) return false;
     if (priceRange === "1500-2000" && (p < 1500 || p > 2000)) return false;
     if (priceRange === "2000-2500" && (p < 2000 || p > 2500)) return false;
