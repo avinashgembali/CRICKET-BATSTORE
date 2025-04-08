@@ -125,6 +125,14 @@ function addToCart(bat) {
 
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-to-cart")) {
+    const userEmail = localStorage.getItem("userEmail"); 
+
+    if (!userEmail) {
+      alert("Please log in to add items to your cart.");
+      window.location.href = "login.html"; 
+      return;
+    }
+
     const btn = e.target;
     const bat = {
       name: btn.dataset.name,
